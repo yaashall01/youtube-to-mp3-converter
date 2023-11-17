@@ -4,7 +4,6 @@ from threading import Thread
 import os
 import sys
 
-# Importing the downloader and converter modules
 sys.path.append(os.path.join(os.path.dirname(__file__), 'src'))
 from downloader import download_video
 from converter import convert_to_mp3
@@ -33,7 +32,6 @@ def on_convert_button_click():
         return
     Thread(target=start_conversion_process, args=(url, save_path)).start()
 
-# Setting up the GUI
 root = tk.Tk()
 root.title("YouTube to MP3 Converter")
 

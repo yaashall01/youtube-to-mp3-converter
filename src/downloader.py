@@ -9,14 +9,11 @@ def download_video(url, save_path='.'):
     :return: Path to the downloaded video, or None if download fails
     """
     try:
-        # Create a YouTube object
         yt = YouTube(url)
 
-        # Get the highest resolution stream available
         video_stream = yt.streams.filter(progressive=True, file_extension='mp4').order_by('resolution').desc().first()
 
         if video_stream:
-            # Download the video
             video_stream.download(save_path)
             print(f"Downloaded '{yt.title}' successfully.")
             return video_stream.default_filename

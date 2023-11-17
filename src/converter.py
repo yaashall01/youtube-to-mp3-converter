@@ -13,16 +13,12 @@ def convert_to_mp3(video_path, output_path=None):
         output_path = os.path.splitext(video_path)[0] + '.mp3'
 
     try:
-        # Load the video file
         video_clip = VideoFileClip(video_path)
 
-        # Extract audio from the video
         audio_clip = video_clip.audio
 
-        # Write the audio to a file
         audio_clip.write_audiofile(output_path)
 
-        # Close the clips
         audio_clip.close()
         video_clip.close()
 
